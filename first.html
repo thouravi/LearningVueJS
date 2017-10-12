@@ -3,21 +3,38 @@
 	<head>
     <title>VueJS</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	
 	<body>
+		
 		<div id="root">
 			<center>
 				<div v-for="book in books">
 					<h1> {{ book.name }} </h1> 
 					<p> By <b>{{ book.author }}</b> </p>
-					<p><b>{{ book.date }}</b> in <b>{{ book.language }}</b> </br></br> Update Any Change You Want!</p>
-					<input type="text" v-model="book.name">
-					<input type="text" v-model="book.author">
-					<input type="text" v-model="book.date">
-					<input type="text" v-model="book.language"><hr>
+					<p><b>{{ book.date }}</b> in <b>{{ book.language }}</b> </br></p>
+					<form class="form-inline">
+					<input type="text" class="form-control" v-model="book.name">
+					<input type="text" class="form-control" v-model="book.author">
+					<input type="text" class="form-control" v-model="book.date">
+					<input type="text" class="form-control" v-model="book.language">
+					</form><hr class="style14">
+				</div>
+				
+				<div>
+					<h1>Add New Book</h1>
+					<form class="form-inline">
+					<input type="text" class="form-control" v-model="newName" placeholder="Title"></input>
+					<input type="text" class="form-control" v-model="newAuthor" placeholder="Author"></input>
+					<input type="text" class="form-control" v-model="newDate" placeholder="Year"></input>
+					<input type="text" class="form-control" v-model="newLanguage" placeholder="Language"></input>
+					</br></br>
+					<button @click="addNew" type="button" class="btn btn-default">Add Book</button>
+					</form>
 				</div>
 			</center>
 		</div>
@@ -30,7 +47,13 @@
       new Vue({
         el:'#root',
         data: {
-          books: [
+		
+        newName: '',
+        newAuthor: '',
+        newDate: '',
+        newLanguage: '',
+		  
+		 books: [
             {
               name: 'Hamlet',
               author: 'William Shakespeare',
@@ -44,7 +67,17 @@
               language: 'English'
             }
           ]
-        }
+        },
+		
+		methods: {
+			addNew() {
+				this.books.push({name: this.newName, author: this.newAuthor, date: this.newDate, language: this.newLanguage});
+				this.newName = '';
+				this.newAuthor = '';
+				this.newDate = '';
+				this.newLanguage = '';
+			}
+		}
       })
 	  </script>
 	</body>
