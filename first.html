@@ -11,13 +11,20 @@
 	
 	<body>
 		<div class="root">
-			<center><h1> {{name}} </h1> <p> By <b>{{author}}</b> </p>
-			<p><b>{{date}}</b> in <b>{{language}}</b></p><hr>
+			<center>
+			<h1> {{names[0]}} </h1> <p> By <b>{{authors[0]}}</b> </p>
+			<p><b>{{dates[0]}}</b> in <b>{{language}}</b></p><hr>
+			<h1> {{names[1]}} </h1> <p> By <b>{{authors[1]}}</b> </p>
+			<p><b>{{dates[1]}}</b> in <b>{{language}}</b></p><hr>
 			<p>Update Any Changes You Want.</p>
-			<input type="text" id="text" v-model="name"></input>
-			<input type="text" id="text" v-model="author"></input>
-			<input type="text" id="text" v-model="date"></input>
-			<input type="text" id="text" v-model="language"></input></center>
+			<input type="text" id="text" v-model="names[0]"></input>
+			<input type="text" id="text" v-model="authors[0]"></input>
+			<input type="text" id="text" v-model="dates[0]"></input>
+			<input type="text" id="text" v-model="language"></input> </br> </br>
+			<input type="text" id="text" v-model="names[1]"></input>
+			<input type="text" id="text" v-model="authors[1]"></input>
+			<input type="text" id="text" v-model="dates[1]"></input>
+			<input type="text" id="text" v-model="language"></input></center><hr>
 		</div>
 	
 	
@@ -29,9 +36,9 @@
 			el: '.root',
 			data: book = 
 			{
-				name: 'Hamlet',
-				author: 'William Shakespeare',
-				date: '1609',
+				names: ['Hamlet', 'A Boys Will'],
+				authors: ['William Shakespeare', 'Robert Frost'],
+				dates: ['1609', '1913'],
 				language: 'English'
 			}
 		})
