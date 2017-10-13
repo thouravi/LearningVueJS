@@ -62,7 +62,7 @@
 					<div class="form-group">
 					<input type="text" class="form-control" v-model="book.language">
 					</div>
-					<button @click="remove" type="button" class="btn btn-danger">X</button>
+					<button @click="remove(book)" type="button" class="btn btn-danger">X</button>
 					</form>
 					</div>
 					</div>
@@ -112,8 +112,8 @@
 				this.newLanguage = '';
 			},
 			
-			remove() {
-				this.books.splice(this.books.indexOf(name), 1);
+			remove(book) {
+				this.books.splice(this.books.indexOf(book), 1);
 			}
 		}
       })
