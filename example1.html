@@ -35,7 +35,7 @@
 					<div class="container">
 					<div class="row">
 					<div class="col-md-2">
-					<h1> {{ book.name }} </h1> 
+					<h1> {{ book.name }}</h1> 
 					<p> By <b>{{ book.author }}</b> </p>
 					<p><b>{{ book.date }}</b> in <b>{{ book.language }}</b> </br></p>
 					</div>
@@ -54,7 +54,7 @@
 					<div class="form-group">
 					<input type="text" class="form-control" v-model="book.language">
 					</div>
-					<!--<button @click="remove" type="button" class="btn btn-danger">X</button>-->
+					<button @click="remove" type="button" class="btn btn-danger">X</button>
 					</form>
 					</div>
 					</div>
@@ -104,8 +104,8 @@
 				this.newLanguage = '';
 			},
 			
-			remove: function (index) {
-				this.books.splice(index, 1);
+			remove() {
+				this.books.splice(this.books.indexOf(name), 1);
 			}
 		}
       })
